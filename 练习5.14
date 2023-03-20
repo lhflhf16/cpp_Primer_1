@@ -1,0 +1,35 @@
+int main()
+{
+	string tmp;
+	string max_str;
+	int max_num = 0;
+	if (cin >> tmp)
+	{
+		string front = tmp;//前一个字符串
+		int cnt = 1;//记录连续次数
+		while (cin >> tmp)//tmp表示当前字符串
+		{
+			if (front == tmp)
+			{
+				++cnt;
+			}
+			else
+			{
+				if (max_num < cnt)
+				{
+					max_num = cnt;
+					max_str = front;
+				}
+				front = tmp;
+				cnt = 1;
+			}
+		}
+		if (max_num < cnt)
+		{
+			max_num = cnt;
+			max_str = tmp;
+		}
+	}
+	cout << max_str << ":" << max_num << endl;
+	return 0;
+}
