@@ -1,0 +1,81 @@
+//int main()
+//{
+//	unsigned int ff = 0, fi = 0, fl = 0;
+//	char c, front = '\0';//c是当前字符，front是前一个字符
+//	while (cin >> c)
+//	{
+//		bool is_jump = false;
+//
+//		if (front == 'f')
+//		{
+//			switch (c)
+//			{
+//			case 'f':
+//				++ff;
+//				is_jump = true;//前一字符和当前字符都为f
+//				break;
+//			case 'i':
+//				++fi;
+//				break;
+//			case 'l':
+//				++fl;
+//				break;
+//			}
+//		}
+//		//重新设置前一字符
+//		if (is_jump)//1.
+//		{
+//			front = '\0';
+//		}
+//		else
+//		{
+//			front = c;
+//		}
+//	}
+//	cout << "ff:" << ff << '\n'
+//		<< "fi:" << fi << '\n'
+//		<< "fl:" << fl << endl;
+//	return 0;
+//}
+
+//int main()
+//{
+//	string s;
+//	unsigned int ff = 0, fi = 0, fl = 0;
+//	while (cin >> s)
+//	{
+//		bool is_jump = false;//当前指针指向f，后指针也指向f时例如：ffi。则在++beg后，将第二个f跳过，不会计算fi
+//
+//		for (auto beg = s.cbegin(); (s.size() >= 2) && (beg != s.cend() - 1); ++beg)//字符串长度要大于等于2，且beg不能指向最后一个元素。
+//		{
+//			char tmp = *beg;//不去改变字符串内容
+//	
+//			if (is_jump)
+//			{
+//				tmp = '\0';
+//				is_jump = false;//执行跳过后，将is_jump改回来，直到再次遇到ff
+//			}
+//
+//			if (tmp == 'f')
+//			{
+//				switch (*(beg + 1))
+//				{
+//				case 'f':
+//					++ff;
+//					is_jump = true;//当前指针指向f，后指针也指向f，则将后一个f跳过例如：ffi
+//					break;
+//				case 'i':
+//					++fi; break;
+//				case 'l':
+//					++fl; break;
+//				default:
+//					break;
+//				}
+//			}
+//		}
+//	}
+//	cout << "ff:" << ff << '\n'
+//		<< "fi:" << fi << '\n'
+//		<< "fl:" << fl << endl;
+//	return 0;
+//}
